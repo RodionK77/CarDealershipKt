@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_horizontal"
+    android:background="@color/background_grey">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/action_bar_background"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/about_model_toolbar"
+        app:titleTextColor="@color/items_color" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_car_info"
+        android:layout_width="0dp"
+        android:layout_height="195dp"
+        android:layout_marginTop="10dp"
+        app:cardBackgroundColor="@color/card_background"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/info_card_name_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:text="Skoda Rapid II"
+            android:textColor="@color/items_color"
+            android:textSize="18dp"
+            app:layout_constraintEnd_toStartOf="@+id/view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_rv_card_info"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="10dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/rv_card_background"
+            android:src="@drawable/kia_tellurida"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/info_card_name_info" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="2dp"
+            android:layout_height="170dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="140dp"
+            android:background="@color/items_color_glass"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/rv_card_price_info"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:text="1 214 000 ₽"
+            android:textColor="@color/items_color"
+            android:textSize="18dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/view"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="120dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:background="@color/items_color_glass"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_rv_card_info"
+            app:layout_constraintTop_toBottomOf="@id/rv_card_price_info"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_card_left_top"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/initials_background"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/rv_card_price_info">
+
+            <TextView
+                android:id="@+id/cv_info_review"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/reviews_info"
+                android:textColor="@color/items_color"
+                android:textSize="14dp"
+                android:textStyle="normal"></TextView>
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/iv_bookmark_info"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_bookmark_false"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_rv_card_info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/view" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_car_info2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        app:cardBackgroundColor="@color/card_background"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@+id/cv_car_info">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/info_card_char"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="center"
+                    android:paddingTop="10dp"
+                    android:text="@string/specifications"
+                    android:textColor="@color/items_color"
+                    android:textSize="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/info_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="4dp"
+                    android:text="@string/general_information"
+                    android:textColor="@color/items_color"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/info_card_char" />
+
+                <TextView
+                    android:id="@+id/info_fields_main"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/general_information_description"
+                    android:textColor="@color/text_field"
+                    android:textSize="12dp"
+                    android:textStyle="normal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/info_main"
+                    app:layout_constraintEnd_toStartOf="@id/info_fields_main_data"/>
+
+                <TextView
+                    android:id="@+id/info_fields_main_data"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/general_information_description"
+                    android:textColor="@color/items_color"
+                    android:layout_marginEnd="20dp"
+                    android:textSize="12dp"
+                    android:textStyle="normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/info_fields_main"
+                    app:layout_constraintTop_toBottomOf="@+id/info_main" />
+
+                <TextView
+                    android:id="@+id/info_engine"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="4dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/engine"
+                    android:textStyle="bold"
+                    android:textSize="16dp"
+                    android:textColor="@color/items_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/info_fields_main">
+                </TextView>
+
+                <TextView
+                    android:id="@+id/info_fields_engine"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/engine_description"
+                    android:textStyle="normal"
+                    android:textSize="12dp"
+                    android:textColor="@color/text_field"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/info_engine"
+                    app:layout_constraintEnd_toStartOf="@id/info_fields_engine_data"/>
+
+                <TextView
+                    android:id="@+id/info_fields_engine_data"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:text="@string/engine_description"
+                    android:textStyle="normal"
+                    android:textSize="12dp"
+                    android:textColor="@color/items_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/info_fields_engine"
+                    app:layout_constraintTop_toBottomOf="@id/info_engine"/>
+
+                <TextView
+                    android:id="@+id/info_exploitation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="4dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/exploitation"
+                    android:textStyle="bold"
+                    android:textSize="16dp"
+                    android:textColor="@color/items_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/info_fields_engine"/>
+
+                <TextView
+                    android:id="@+id/info_fields_exploitation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/exploitation_description"
+                    android:textStyle="normal"
+                    android:textSize="12dp"
+                    android:textColor="@color/text_field"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/info_exploitation"
+                    app:layout_constraintEnd_toStartOf="@id/info_fields_exploitation_data">
+                </TextView>
+
+                <TextView
+                    android:id="@+id/info_fields_exploitation_data"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:text="@string/exploitation_description"
+                    android:textStyle="normal"
+                    android:textSize="12dp"
+                    android:textColor="@color/items_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/info_fields_exploitation"
+                    app:layout_constraintTop_toBottomOf="@id/info_exploitation">
+                </TextView>
+
+                <TextView
+                    android:id="@+id/info_size"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="4dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/size"
+                    android:textStyle="bold"
+                    android:textSize="16dp"
+                    android:textColor="@color/items_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/info_fields_exploitation">
+                </TextView>
+
+                <TextView
+                    android:id="@+id/info_fields_size"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/size_description"
+                    android:textStyle="normal"
+                    android:textSize="12dp"
+                    android:textColor="@color/text_field"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/info_size"
+                    app:layout_constraintEnd_toStartOf="@id/info_fields_size_data">
+                </TextView>
+
+                <TextView
+                    android:id="@+id/info_fields_size_data"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:text="@string/size_description"
+                    android:textStyle="normal"
+                    android:textSize="12dp"
+                    android:textColor="@color/items_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/info_fields_size"
+                    app:layout_constraintTop_toBottomOf="@id/info_size">
+                </TextView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

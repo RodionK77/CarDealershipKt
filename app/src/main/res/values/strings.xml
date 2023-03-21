@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">CarDealershipKt</string>
+    <string name="about_model_toolbar">О модели</string>
+    <string name="reviews_info">Посмотреть\nотзывы</string>
+    <string name="specifications">Характеристики</string>
+    <string name="general_information">Общая информация</string>
+    <string name="general_information_description">Марка\nСтрана марки\nМодель\nЦвет\nКласс автомобиля\nКол-во дверей\nКол-во мест\nРасположение руля</string>
+    <string name="engine">Двигатель</string>
+    <string name="engine_description">Тип двигателя\nОбъём\nМощность\nКоробка передач</string>
+    <string name="exploitation">Эксплуатация</string>
+    <string name="exploitation_description">Ускорение\nПотребление</string>
+    <string name="size">Размеры и объём</string>
+    <string name="size_description">Длина\nШирина\nВысота\nОбъём багажника\nОбъём топливного бака</string>
 </resources>
