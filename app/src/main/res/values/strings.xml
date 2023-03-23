@@ -11,4 +11,24 @@
     <string name="exploitation_description">Ускорение\nПотребление</string>
     <string name="size">Размеры и объём</string>
     <string name="size_description">Длина\nШирина\nВысота\nОбъём багажника\nОбъём топливного бака</string>
+    <string name="compilation">Подборка внедорожников</string>
+    <string name="favorites">Закладки</string>
+    <string name="no_favorites">Вы ещё ничего не добавили</string>
+    <string name="settings">Настройки</string>
+    <string name="users">Список пользователей</string>
+    <string name="name">Имя</string>
+    <string name="lastname">Фамилия</string>
+    <string name="date">День рождения</string>
+    <string name="mail">Почта</string>
+    <string name="phone">Телефон</string>
+    <string name="changes">Внести изменения</string>
+    <string name="exit">Выйти из аккаунта</string>
+    <string name="personal">Личные данные</string>
+    <string name="log_as">Вход как</string>
+    <string name="register_as">Регистрация как</string>
+    <string name="log">Вход</string>
+    <string name="register">Регистрация</string>
+    <string name="user">Пользователь</string>
+    <string name="admin">Администратор</string>
+    <string name="dev">Разработчик</string>
 </resources>

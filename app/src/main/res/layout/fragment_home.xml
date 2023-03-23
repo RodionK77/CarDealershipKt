@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view0"
+        android:layout_width="370dp"
+        android:layout_height="204dp"
+        android:layout_marginTop="20dp"
+        android:outlineAmbientShadowColor="@color/card_red_shadow"
+        android:outlineSpotShadowColor="@color/card_red_shadow"
+        app:cardBackgroundColor="@color/card_background"
+        app:cardCornerRadius="45dp"
+        app:cardElevation="25dp"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+        app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view1"
+        android:layout_width="170dp"
+        android:layout_height="150dp"
+        android:outlineAmbientShadowColor="@color/card_green_shadow"
+        android:outlineSpotShadowColor="@color/card_green_shadow"
+        app:cardBackgroundColor="@color/card_background"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="25dp"
+        app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@+id/card_view0"
+        app:layout_constraintEnd_toStartOf="@id/card_view3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_card1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:gravity="start"
+                android:text="Всё\nнипочём!"
+                android:textColor="@color/card_green"
+                android:textSize="26dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/iv_card1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/jeep_green" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view3"
+        android:layout_width="170dp"
+        android:layout_height="150dp"
+        android:outlineAmbientShadowColor="@color/card_yellow_shadow"
+        android:outlineSpotShadowColor="@color/card_yellow_shadow"
+        app:cardBackgroundColor="@color/card_background"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="25dp"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+        app:layout_constraintStart_toEndOf="@+id/card_view1"
+        app:layout_constraintTop_toBottomOf="@+id/card_view0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_card2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:gravity="start"
+                android:text="Культовая\nКЛАССИКА"
+                android:textColor="@color/card_yellow"
+                android:textSize="26dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/iv_card2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:scaleType="fitXY"
+                android:scaleY="2"
+                android:src="@drawable/lambo_yellow" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view2"
+        android:layout_width="170dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:outlineAmbientShadowColor="@color/card_blue_shadow"
+        android:outlineSpotShadowColor="@color/card_blue_shadow"
+        app:cardBackgroundColor="@color/card_background"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="25dp"
+        app:layout_constraintStart_toStartOf="@+id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@+id/card_view1"
+        app:layout_constraintEnd_toStartOf="@id/card_view4">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_card3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:gravity="start"
+                android:text="Любимый\nпомощник"
+                android:textColor="@color/card_blue"
+                android:textSize="26dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/iv_card3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:src="@drawable/kia_blue" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view4"
+        android:layout_width="170dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:outlineAmbientShadowColor="@color/card_orange_shadow"
+        android:outlineSpotShadowColor="@color/card_orange_shadow"
+        app:cardBackgroundColor="@color/card_background"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="25dp"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
+        app:layout_constraintStart_toEndOf="@+id/card_view2"
+        app:layout_constraintTop_toBottomOf="@+id/card_view3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_card4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:gravity="start"
+                android:text="Всегда\nдля души"
+                android:textColor="@color/card_orange"
+                android:textSize="28dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/iv_card4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bmw_orange" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

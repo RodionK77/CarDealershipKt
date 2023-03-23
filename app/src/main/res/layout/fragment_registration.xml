@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_registration"
+        android:layout_width="0dp"
+        android:layout_height="145dp"
+        android:layout_marginTop="20dp"
+        app:cardBackgroundColor="@color/registration_background"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_registration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="@string/register_as"
+                android:textColor="@color/items_color"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/toggleGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleX="0.9"
+                android:scaleY="0.9"
+                app:checkedButton="@id/btn_user"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_registration"
+                app:singleSelection="true">
+
+                <Button
+                    android:id="@+id/btn_user"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/user"
+                    android:textAllCaps="false"
+                    android:textSize="12dp" />
+
+                <Button
+                    android:id="@+id/btn_admin"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/admin"
+                    android:textAllCaps="false"
+                    android:textSize="12dp" />
+
+                <Button
+                    android:id="@+id/btn_dev"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/dev"
+                    android:textAllCaps="false"
+                    android:textSize="12dp" />
+
+
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="60dp"
+                android:background="@color/items_color_glass"
+                tools:layout_editor_absoluteX="60dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toggleGroup"/>
+
+            <Button
+                android:id="@+id/btn_toEntrance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/items_color"
+                android:padding="10dp"
+                android:text="@string/log"
+                android:textAllCaps="false"
+                android:textColor="@color/button_red"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_registration_form"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        android:layout_marginTop="20dp"
+        app:cardBackgroundColor="@color/card_background"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@id/cv_registration">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/tv_registration_enter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="Ввод данных"
+                android:layout_gravity="center"
+                android:textColor="@color/items_color"
+                android:textSize="16dp" />
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal">
+
+                <EditText
+                    android:id="@+id/et_admin_name"
+                    android:hint="Имя*"
+                    android:textSize="12dp"
+                    android:maxLength="20"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"/>
+
+                <EditText
+                    android:id="@+id/et_admin_lastname"
+                    android:hint="Фамилия*"
+                    android:textSize="12dp"
+                    android:maxLength="20"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/et_admin_date"
+                android:hint="День рождения*"
+                android:textSize="12dp"
+                android:inputType="date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp" />
+            <EditText
+                android:id="@+id/et_admin_phone"
+                android:hint="Телефон*"
+                android:inputType="phone"
+                android:textSize="12dp"
+                android:maxLength="15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp" />
+            <EditText
+                android:id="@+id/et_admin_mail"
+                android:hint="Почта*"
+                android:textSize="12dp"
+                android:maxLength="30"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp" />
+
+            <EditText
+                android:id="@+id/et_admin_password"
+                android:inputType="textPassword"
+                android:hint="Пароль*"
+                android:textSize="12dp"
+                android:maxLength="30"
+                android:drawableRight="@drawable/ic_visibility_off"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp" />
+
+            <EditText
+                android:id="@+id/et_admin_password2"
+                android:inputType="textPassword"
+                android:hint="Повторите пароль*"
+                android:textSize="12dp"
+                android:drawableRight="@drawable/ic_visibility_off"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp" />
+
+            <EditText
+                android:id="@+id/et_admin_code"
+                android:inputType="numberPassword"
+                android:hint="Введите защитный код администратора*"
+                android:textSize="12dp"
+                android:maxLength="8"
+                android:drawableRight="@drawable/ic_visibility_off"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:visibility="gone"/>
+
+            <EditText
+                android:id="@+id/et_dev_code"
+                android:inputType="numberPassword"
+                android:hint="Введите защитный код разработчика*"
+                android:textSize="12dp"
+                android:maxLength="8"
+                android:drawableRight="@drawable/ic_visibility_off"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:visibility="gone"/>
+
+            <Button
+                android:id="@+id/btn_admin_registration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="8dp"
+                android:text="Зарегистрироваться"
+                android:textSize="16dp"
+                android:padding="10dp"
+                android:backgroundTint="@color/items_color"
+                android:textColor="@color/button_green"
+                android:textAllCaps="false"
+                android:background="@drawable/rounded_button"/>
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
+
+    <!--<fragment
+        android:id="@+id/reg_fr"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:name="com.example.cardealership.ui.registration.RegistrationUserFragment"/>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
