@@ -41,6 +41,8 @@
             android:fontFamily="@font/roboto_bold"
             android:gravity="center"
             android:text="Skoda Rapid II"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp"
             android:textColor="@color/items_color"
             android:textSize="18dp"
             app:layout_constraintEnd_toStartOf="@+id/view"
@@ -52,6 +54,8 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginBottom="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:adjustViewBounds="true"
             android:background="@drawable/rv_card_background"
             android:src="@drawable/kia_tellurida"
@@ -65,10 +69,11 @@
             android:layout_width="2dp"
             android:layout_height="170dp"
             android:layout_gravity="center"
-            android:layout_marginEnd="140dp"
+            android:layout_marginEnd="2dp"
             android:background="@color/items_color_glass"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/cv_card_left_top"
+            app:layout_constraintStart_toEndOf="@id/iv_rv_card_info"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -86,12 +91,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
-            android:layout_width="120dp"
+            android:layout_width="0dp"
             android:layout_height="2dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
             android:layout_gravity="center"
             android:background="@color/items_color_glass"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/iv_rv_card_info"
+            app:layout_constraintStart_toEndOf="@+id/view"
             app:layout_constraintTop_toBottomOf="@id/rv_card_price_info"/>
 
         <androidx.cardview.widget.CardView
@@ -100,6 +107,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
             app:cardBackgroundColor="@color/initials_background"
             app:cardCornerRadius="20dp"
             app:layout_constraintEnd_toEndOf="parent"

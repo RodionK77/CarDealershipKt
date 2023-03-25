@@ -55,11 +55,11 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 android:layout_gravity="center"
-                android:layout_marginEnd="200dp"
                 android:background="@color/items_color_glass"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toEndOf="@id/iv_rv_card_info"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/cv_card_left_top"/>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_card_left_top"
@@ -92,8 +92,10 @@
                 android:layout_gravity="center"
                 app:cardBackgroundColor="@color/initials_background"
                 app:cardCornerRadius="20dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/iv_rv_card_info"
+                app:layout_constraintStart_toEndOf="@+id/view"
                 app:layout_constraintTop_toBottomOf="@+id/cv_card_left_top">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -104,25 +106,24 @@
                         android:id="@+id/rv_card_engine_capacity_power"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="Бензин\n1.6 л.\n110 л. с."
-                        android:layout_marginTop="10dp"
-                        android:textStyle="normal"
-                        android:textSize="12dp"
                         android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Бензин\n1.6 л.\n110 л. с."
                         android:textColor="@color/items_color"
+                        android:textSize="12dp"
+                        android:textStyle="normal"
+                        app:layout_constraintEnd_toStartOf="@id/rv_card_drive_transmission_body"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/rv_card_drive_transmission_body">
-                    </TextView>
+                        app:layout_constraintTop_toTopOf="parent"></TextView>
 
                     <TextView
                         android:id="@+id/rv_card_drive_transmission_body"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
                         android:text="Передний\nАвтомат\nЛифтбек"
                         android:textColor="@color/items_color"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginStart="20dp"
                         android:textSize="12dp"
                         android:textStyle="normal"
                         app:layout_constraintEnd_toEndOf="parent"
