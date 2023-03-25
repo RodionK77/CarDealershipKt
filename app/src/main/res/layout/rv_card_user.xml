@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_rv_card_user"
+        android:layout_width="370dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:outlineAmbientShadowColor="@color/items_color"
+        android:outlineSpotShadowColor="@color/items_color"
+        app:cardBackgroundColor="@color/card_background"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/rv_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Акакий Акакиевич"
+                android:textColor="@color/items_color"
+                android:textSize="14dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/v1"/>
+
+            <View
+                android:id="@+id/v1"
+                android:layout_width="2dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="10dp"
+                android:background="@color/items_color_glass"
+                android:layout_gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/rv_user_name"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <LinearLayout
+                android:id="@+id/ll"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/v1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/v2">
+
+                <TextView
+                    android:id="@+id/rv_user_mail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="mailbox@mail.ru"
+                    android:textSize="14dp"
+                    android:textColor="@color/items_color">
+                </TextView>
+
+                <TextView
+                    android:id="@+id/rv_user_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="79157778448"
+                    android:textColor="@color/items_color"
+                    android:textSize="14dp">
+                </TextView>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/v2"
+                android:layout_width="2dp"
+                android:layout_height="34dp"
+                android:background="@color/items_color_glass"
+                android:layout_gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ll"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/rv_user_role"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Администратор"
+                android:paddingStart="10dp"
+                android:textSize="14dp"
+                android:textColor="@color/items_color"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/v2"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="10dp">
+            </TextView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -31,4 +31,8 @@
     <string name="user">Пользователь</string>
     <string name="admin">Администратор</string>
     <string name="dev">Разработчик</string>
+    <string name="carofday">Предложение\nДНЯ!</string>
+    <string name="price">Цена</string>
+    <string name="alphabet">Алфавит</string>
+    <string name="chat">Чат с поддержкой</string>
 </resources>
