@@ -35,4 +35,5 @@
     <string name="price">Цена</string>
     <string name="alphabet">Алфавит</string>
     <string name="chat">Чат с поддержкой</string>
+    <string name="promo_id">Введите ID промо-автомобиля:</string>
 </resources>
