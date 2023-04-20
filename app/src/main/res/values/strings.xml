@@ -36,4 +36,7 @@
     <string name="alphabet">Алфавит</string>
     <string name="chat">Чат с поддержкой</string>
     <string name="promo_id">Введите ID промо-автомобиля:</string>
+    <string name="title_home">Домой</string>
+    <string name="title_search">Поиск</string>
+    <string name="title_user">Пользователь</string>
 </resources>
