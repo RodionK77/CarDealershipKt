@@ -1,4 +1,4 @@
-package com.example.cardealershipkt
+package com.example.cardealershipkt.API
 
 import com.google.gson.Gson
 import retrofit2.Retrofit

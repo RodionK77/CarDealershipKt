@@ -34,7 +34,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/info_card_name_info"
+            android:id="@+id/tv_rv_car_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:paddingTop="10dp"
@@ -62,7 +62,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/view"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/info_card_name_info" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_rv_car_name" />
 
         <View
             android:id="@+id/view"
