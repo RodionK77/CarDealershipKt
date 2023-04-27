@@ -3,6 +3,7 @@ package com.example.cardealershipkt
 import android.graphics.Paint
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,7 +21,6 @@ import java.util.*
 
 class SearchFragment : Fragment() {
 
-    private var searchAdapter = SearchAdapter()
     private lateinit var data: List<CarItem>
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
@@ -45,7 +45,7 @@ class SearchFragment : Fragment() {
         val layoutManager = LinearLayoutManager(context)
         binding.rvCars.layoutManager = layoutManager
         binding.rvCars.setHasFixedSize(true)
-        binding.rvCars.adapter = searchAdapter
+        binding.rvCars.adapter = adapter
         adapter.notifyDataSetChanged()
 
         binding.btnSort1.setOnClickListener(View.OnClickListener {
@@ -71,6 +71,7 @@ class SearchFragment : Fragment() {
         })
 
         viewModel.carListLiveData.observe(viewLifecycleOwner) { cars ->
+            Log.d("IT", cars.get(0)!!.brand!!)
             adapter.items = cars
             adapter.notifyDataSetChanged()
         }

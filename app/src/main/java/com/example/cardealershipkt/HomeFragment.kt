@@ -1,6 +1,7 @@
 package com.example.cardealershipkt
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,8 +22,10 @@ class HomeFragment : Fragment() {
     private lateinit var carList: List<CarItem>
     private lateinit var mDataBase: DatabaseReference
     private lateinit var item: CarItem
+    private var idx = 1
 
     private val viewModel: MainViewModel by activityViewModels()
+
 
 
     override fun onCreateView(
@@ -31,31 +34,33 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
         mDataBase = viewModel.getFirebaseDatabase("Promo")
         mDataBase.get().addOnCompleteListener(OnCompleteListener<DataSnapshot> { task ->
             if (!task.isSuccessful) {
                 Toast.makeText(context, "Ошибка доступа", Toast.LENGTH_SHORT).show()
             } else {
-                /*var idx = task.result.getValue(Int::class.java)
-                viewModel.getCar(idx!!).observe(viewLifecycleOwner) { car ->
-                    item = car
-                }
-                //val item: CarItem = viewModel.getCar(idx!!)
-                var name: String = item.name
-                if (name.contains(" ")) {
-                    name = name.substring(0, name.indexOf(" "))
-                }
-                binding.brandCard0.text = item.brand + " " + name
-                binding.priceCard0.text = ("${item.price}₽").toString()
-                Picasso.get().load(item.image).into(binding.ivCard0)*/
+                idx = task.result.getValue(Int::class.java)!!
+                Log.d("XXX", idx.toString())
             }
         })
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel.getCar(idx!!).observe(viewLifecycleOwner) { car ->
+            item = car
+            var name: String = item.name!!
+            if (name.contains(" ")) {
+                name = name.substring(0, name.indexOf(" "))
+            }
+            binding.brandCard0.text = item.brand + " " + name
+            binding.priceCard0.text = ("${item.price}₽").toString()
+            Picasso.get().load(item.image).into(binding.ivCard0)
+        }
 
     }
 

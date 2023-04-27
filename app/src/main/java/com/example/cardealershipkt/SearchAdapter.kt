@@ -29,8 +29,8 @@ class SearchAdapter() : RecyclerView.Adapter<SearchAdapter.CarsViewHolder>(), Se
         val item = items[position]
         holder.item = item
         holder.name.text = item.brand + " " + item.name
-        holder.price.text = String.format("%,.0f", item.price?.let { Integer.valueOf(it) }) + " ₽"
-        holder.infoLeft.text = item.engine + "\n" + java.lang.String.valueOf(item.capacity) + " л.\n" + java.lang.String.valueOf(item.power) + " л. с."
+        holder.price.text = item.price.toString() + " ₽"
+        holder.infoLeft.text = item.engine + "\n" + item.capacity.toString() + " л.\n" + (item.power.toString() + " л. с.")
         holder.infoRight.text = item.drive + "\n" + item.transmission + "\n" + item.body
         Picasso.get().load(item.image).into(holder.image)
     }
