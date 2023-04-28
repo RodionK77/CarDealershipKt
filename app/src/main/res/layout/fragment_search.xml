@@ -13,6 +13,7 @@
         android:drawableLeft="@drawable/ic_sort_24"
         android:text="@string/price"
         android:textSize="10sp"
+        android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btn_sort3"/>
@@ -25,6 +26,7 @@
         android:drawableLeft="@drawable/ic_sort_by_alpha_24"
         android:text="@string/alphabet"
         android:textSize="10sp"
+        android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btn_sort1"
         app:layout_constraintTop_toTopOf="parent" />

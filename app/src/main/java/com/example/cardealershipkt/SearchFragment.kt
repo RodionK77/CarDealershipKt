@@ -24,7 +24,8 @@ class SearchFragment : Fragment() {
     private lateinit var data: List<CarItem>
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
-    private var sort = false;
+    private var sort = false
+    private var sortA = false
     private val adapter: SearchAdapter = SearchAdapter()
 
     private val viewModel: MainViewModel by activityViewModels()
@@ -34,7 +35,7 @@ class SearchFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentSearchBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -50,28 +51,29 @@ class SearchFragment : Fragment() {
 
         binding.btnSort1.setOnClickListener(View.OnClickListener {
             if(!sort){
-                Collections.sort(data,
-                    Comparator<CarItem> { lhs, rhs -> lhs.price!!.compareTo(rhs.price!!) })
-                adapter.items = data
+                adapter.items =  adapter.items.sortedBy { it.price }
                 adapter.notifyDataSetChanged()
+                sort = true
             }else {
-                Collections.sort(data,
-                    Comparator<CarItem> { lhs, rhs -> rhs.price!!.compareTo(lhs.price!!) })
-                adapter.items = data
+                adapter.items =  adapter.items.sortedBy { it.price }.reversed()
                 adapter.notifyDataSetChanged()
+                sort = false
             }
 
         })
         binding.btnSort3.setOnClickListener(View.OnClickListener {
-            //val carsComparator = Comparator.comparing<CarItem, Any>(CarItem::brand)
-            //Collections.sort(data, carsComparator)
-            data = data.sortedBy { it.brand }
-            adapter.items = data
-            adapter.notifyDataSetChanged()
+            if(!sortA){
+                adapter.items =  adapter.items.sortedBy { it.brand }
+                adapter.notifyDataSetChanged()
+                sortA = true
+            }else {
+                adapter.items =  adapter.items.sortedBy { it.brand }.reversed()
+                adapter.notifyDataSetChanged()
+                sortA = false
+            }
         })
 
         viewModel.carListLiveData.observe(viewLifecycleOwner) { cars ->
-            Log.d("IT", cars.get(0)!!.brand!!)
             adapter.items = cars
             adapter.notifyDataSetChanged()
         }

@@ -34,9 +34,10 @@
     <string name="carofday">Предложение\nДНЯ!</string>
     <string name="price">Цена</string>
     <string name="alphabet">Алфавит</string>
-    <string name="chat">Чат с поддержкой</string>
+    <string name="map">Салоны на карте</string>
     <string name="promo_id">Введите ID промо-автомобиля:</string>
     <string name="title_home">Домой</string>
     <string name="title_search">Поиск</string>
     <string name="title_user">Пользователь</string>
+    <string name="title_map">Салоны на карте</string>
 </resources>

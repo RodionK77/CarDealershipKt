@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.activityViewModels
 import com.example.cardealershipkt.API.Callbacks
 import com.example.cardealershipkt.databinding.FragmentControlBinding
 import com.example.cardealershipkt.databinding.FragmentHomeBinding
@@ -22,10 +23,12 @@ class ControlFragment : Fragment(), Serializable {
     private var _binding:FragmentControlBinding? = null
     private val binding get() = _binding!!
     private var mAuth: FirebaseAuth? = null
-    private var mDataBase: DatabaseReference? = null
+    private lateinit var mDataBase: DatabaseReference
     private var callbacks: Callbacks? = null
     var currentUser: FirebaseUser? = null
     var user: User? = null
+
+    private val viewModel: MainViewModel by activityViewModels()
 
     fun getCallbacks(): Callbacks? {
         return callbacks
@@ -49,25 +52,23 @@ class ControlFragment : Fragment(), Serializable {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        callbacks = context as Callbacks
+        //callbacks = context as Callbacks
     }
 
     override fun onDetach() {
         super.onDetach()
-        callbacks = null
+       //callbacks = null
     }
 
-    /*fun userCheck() {
-        mAuth = FirebaseAuth.getInstance()
-        currentUser = mAuth!!.currentUser
+    private fun userCheck() {
+        currentUser = viewModel.getUser()
         if (currentUser != null) {
-            mDataBase =
-                FirebaseDatabase.getInstance().getReference("Users").child(currentUser!!.uid)
+            mDataBase = viewModel.getFirebaseDatabase("Users").child(currentUser!!.uid)
             mDataBase!!.get().addOnCompleteListener { task ->
                 if (!task.isSuccessful) {
                     Toast.makeText(context, "Ошибка доступа", Toast.LENGTH_SHORT).show()
                     val fr = RegistrationFragment()
-                    callbacks.controlFragmentSelected(fr)
+                    parentFragmentManager.beginTransaction().replace(R.id.control_fr, fr).commit()
                     //changeFragmentToRegistration();
                 } else {
                     user = task.result.getValue(User::class.java)
@@ -76,8 +77,8 @@ class ControlFragment : Fragment(), Serializable {
                     val bundle = Bundle()
                     bundle.putSerializable("1", user)
                     fr.setArguments(bundle)
-                    callbacks.controlFragmentSelected(fr)
-                    //changeFragmentToUser(user);
+                    parentFragmentManager.beginTransaction().replace(R.id.control_fr, fr).commit()
+                    //changeFragmentToUser(user);*/
                 }
             }
             //getDataFromDB();
@@ -85,17 +86,19 @@ class ControlFragment : Fragment(), Serializable {
             //changeFragmentToUser(user);
         } else {
             val fr = RegistrationFragment()
-            callbacks.controlFragmentSelected(fr)
+            parentFragmentManager.beginTransaction().replace(R.id.control_fr, fr).commit()
+            /*callbacks.controlFragmentSelected(fr)*/
             //changeFragmentToRegistration();
         }
-    }*/
+    }
 
     override fun onResume() {
         super.onResume()
-        //userCheck()
+        userCheck()
     }
 
-    /*companion object {
-        var fragmentManager: FragmentManager? = null
-    }*/
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

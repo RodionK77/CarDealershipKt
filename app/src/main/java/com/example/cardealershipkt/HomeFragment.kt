@@ -1,27 +1,30 @@
 package com.example.cardealershipkt
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import com.example.cardealershipkt.databinding.FragmentHomeBinding
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseReference
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    private lateinit var carList: List<CarItem>
     private lateinit var mDataBase: DatabaseReference
     private lateinit var item: CarItem
+    private lateinit var name: String
     private var idx = 1
 
     private val viewModel: MainViewModel by activityViewModels()
@@ -32,41 +35,68 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-
-        mDataBase = viewModel.getFirebaseDatabase("Promo")
-        mDataBase.get().addOnCompleteListener(OnCompleteListener<DataSnapshot> { task ->
-            if (!task.isSuccessful) {
-                Toast.makeText(context, "Ошибка доступа", Toast.LENGTH_SHORT).show()
-            } else {
-                idx = task.result.getValue(Int::class.java)!!
-                Log.d("XXX", idx.toString())
-            }
-        })
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.getCar(idx!!).observe(viewLifecycleOwner) { car ->
-            item = car
-            var name: String = item.name!!
-            if (name.contains(" ")) {
-                name = name.substring(0, name.indexOf(" "))
-            }
-            binding.brandCard0.text = item.brand + " " + name
-            binding.priceCard0.text = ("${item.price}₽").toString()
-            Picasso.get().load(item.image).into(binding.ivCard0)
-        }
-
+        binding.cardView0.setOnClickListener(View.OnClickListener {
+            val intent = Intent(context, CarInfoActivity::class.java)
+            intent.putExtra("EXTRA_MESSAGE", item)
+            context?.startActivity(intent)
+        })
+        binding.cardView1.setOnClickListener(View.OnClickListener {
+            val intent = Intent(context, CarCompilationActivity::class.java)
+            intent.putExtra("EXTRA_MESSAGE", "Внедорожник")
+            context?.startActivity(intent)
+        })
+        binding.cardView2.setOnClickListener(View.OnClickListener {
+            val intent = Intent(context, CarCompilationActivity::class.java)
+            intent.putExtra("EXTRA_MESSAGE", "Седан")
+            context?.startActivity(intent)
+        })
+        binding.cardView3.setOnClickListener(View.OnClickListener {
+            val intent = Intent(context, CarCompilationActivity::class.java)
+            intent.putExtra("EXTRA_MESSAGE", "Спорт классика")
+            context?.startActivity(intent)
+        })
+        binding.cardView4.setOnClickListener(View.OnClickListener {
+            val intent = Intent(context, CarCompilationActivity::class.java)
+            intent.putExtra("EXTRA_MESSAGE", "Кабриолет")
+            context?.startActivity(intent)
+        })
     }
 
     override fun onResume() {
         super.onResume()
         viewModel.refreshCars()
+
+        mDataBase = viewModel.getFirebaseDatabase("Promo")
+        mDataBase.get().addOnCompleteListener(OnCompleteListener<DataSnapshot> { task ->
+            if (!task.isSuccessful) {
+                Toast.makeText(context, "Ошибка доступа", Toast.LENGTH_SHORT).show()
+            } else {
+
+                idx = task.result.getValue(Int::class.java)!!
+                GlobalScope.launch(Dispatchers.IO) {
+                    item = viewModel.getCar(idx)
+                    if(item!=null){
+                        name = item.name!!
+                        if (name.contains(" ")) {
+                            name = name.substring(0, name.indexOf(" "))
+                        }
+                        withContext(Dispatchers.Main){
+                            binding.brandCard0.text = item.brand + " " + name
+                            binding.priceCard0.text = ("${item.price}₽").toString()
+                            Picasso.get().load(item.image).into(binding.ivCard0)
+                        }
+                    }
+                }
+            }
+        })
     }
 
     override fun onDestroyView() {

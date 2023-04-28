@@ -55,7 +55,7 @@ class SearchAdapter() : RecyclerView.Adapter<SearchAdapter.CarsViewHolder>(), Se
             image = itemView.findViewById<View>(R.id.iv_rv_card_info) as ImageView
             //mark = itemView.findViewById<View>(R.id.iv_bookmark) as ImageView
             itemView.setOnClickListener {
-                val intent = Intent(context, CarInfo::class.java)
+                val intent = Intent(context, CarInfoActivity::class.java)
                 intent.putExtra("EXTRA_MESSAGE", item)
                 context.startActivity(intent)
             }
