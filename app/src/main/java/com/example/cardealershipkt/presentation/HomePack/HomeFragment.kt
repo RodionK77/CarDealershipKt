@@ -1,4 +1,4 @@
-package com.example.cardealershipkt
+package com.example.cardealershipkt.presentation.HomePack
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.example.cardealershipkt.presentation.MainViewModel
+import com.example.cardealershipkt.R
+import com.example.cardealershipkt.data.Room.CarItem
 import com.example.cardealershipkt.databinding.FragmentHomeBinding
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.database.DataSnapshot

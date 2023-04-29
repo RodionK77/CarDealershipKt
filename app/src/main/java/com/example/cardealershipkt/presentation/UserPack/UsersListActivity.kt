@@ -1,12 +1,14 @@
-package com.example.cardealershipkt
+package com.example.cardealershipkt.presentation.UserPack
 
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.cardealershipkt.presentation.MainViewModel
+import com.example.cardealershipkt.R
+import com.example.cardealershipkt.domain.User
 import com.example.cardealershipkt.databinding.ActivityUsersListBinding
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DataSnapshot

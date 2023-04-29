@@ -1,9 +1,12 @@
-package com.example.cardealershipkt
+package com.example.cardealershipkt.presentation.HomePack
 
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
+import com.example.cardealershipkt.presentation.MainActivity
+import com.example.cardealershipkt.presentation.AuthorizationPack.ControlFragment
+import com.example.cardealershipkt.presentation.SearchPack.SearchFragment
 
 class MyViewPagerAdapter(mainActivity: MainActivity?) : FragmentStateAdapter(mainActivity!!) {
     override fun createFragment(position: Int): Fragment {

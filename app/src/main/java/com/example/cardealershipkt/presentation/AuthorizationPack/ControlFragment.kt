@@ -1,20 +1,19 @@
-package com.example.cardealershipkt
+package com.example.cardealershipkt.presentation.AuthorizationPack
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
+import com.example.cardealershipkt.presentation.MainViewModel
+import com.example.cardealershipkt.R
+import com.example.cardealershipkt.domain.User
+import com.example.cardealershipkt.presentation.UserPack.UserFragment
 import com.example.cardealershipkt.databinding.FragmentControlBinding
-import com.example.cardealershipkt.databinding.FragmentHomeBinding
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import java.io.Serializable
 
 class ControlFragment : Fragment(), Serializable {

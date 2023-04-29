@@ -1,23 +1,17 @@
-package com.example.cardealershipkt
+package com.example.cardealershipkt.presentation.SearchPack
 
-import android.graphics.Paint
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.cardealershipkt.presentation.MainViewModel
+import com.example.cardealershipkt.data.Room.CarItem
 import com.example.cardealershipkt.databinding.FragmentSearchBinding
-import com.squareup.picasso.Picasso
-import java.util.*
 
 class SearchFragment : Fragment() {
 

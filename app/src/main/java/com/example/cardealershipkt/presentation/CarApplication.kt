@@ -1,6 +1,7 @@
-package com.example.cardealershipkt
+package com.example.cardealershipkt.presentation
 
 import android.app.Application
+import com.example.cardealershipkt.data.Room.CarDatabase
 import com.yandex.mapkit.MapKitFactory
 
 class CarApplication : Application() {

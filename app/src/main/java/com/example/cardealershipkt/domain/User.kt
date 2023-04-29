@@ -1,7 +1,5 @@
-package com.example.cardealershipkt
+package com.example.cardealershipkt.domain
 import java.io.Serializable
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.GenericTypeIndicator
 
 class User: Serializable {
 

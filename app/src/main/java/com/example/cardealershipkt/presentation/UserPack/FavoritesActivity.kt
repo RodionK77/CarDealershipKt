@@ -1,29 +1,22 @@
-package com.example.cardealershipkt
+package com.example.cardealershipkt.presentation.UserPack
 
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.cardealershipkt.*
+import com.example.cardealershipkt.presentation.SearchPack.SearchAdapter
+import com.example.cardealershipkt.data.Room.CarItem
 import com.example.cardealershipkt.databinding.ActivityFavoritesBinding
-import com.example.cardealershipkt.databinding.ActivitySettingsBinding
-import com.google.firebase.auth.FirebaseAuth
+import com.example.cardealershipkt.domain.User
+import com.example.cardealershipkt.presentation.MainViewModel
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.squareup.picasso.Picasso
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import java.io.Serializable
 
 class FavoritesActivity : AppCompatActivity(), Serializable {

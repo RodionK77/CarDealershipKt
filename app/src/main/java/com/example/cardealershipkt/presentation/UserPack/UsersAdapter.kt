@@ -1,15 +1,14 @@
-package com.example.cardealershipkt
+package com.example.cardealershipkt.presentation.UserPack
 
 import android.content.Context
-import android.view.ContextMenu
-import android.view.ContextMenu.ContextMenuInfo
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnCreateContextMenuListener
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cardealershipkt.R
+import com.example.cardealershipkt.domain.User
 import java.io.Serializable
 
 class UsersAdapter() : RecyclerView.Adapter<UsersAdapter.UsersViewHolder>(), Serializable {

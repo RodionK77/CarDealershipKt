@@ -1,18 +1,18 @@
-package com.example.cardealershipkt
+package com.example.cardealershipkt.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
+import com.example.cardealershipkt.R
+import com.example.cardealershipkt.presentation.HomePack.MyViewPagerAdapter
 import com.example.cardealershipkt.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
-    lateinit var fragmentManager: FragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

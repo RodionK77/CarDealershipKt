@@ -1,13 +1,12 @@
-package com.example.cardealershipkt
+package com.example.cardealershipkt.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import com.example.cardealershipkt.data.Room.CarItem
+import com.example.cardealershipkt.data.CarRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
 

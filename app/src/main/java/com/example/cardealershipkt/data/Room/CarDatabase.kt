@@ -1,4 +1,4 @@
-package com.example.cardealershipkt
+package com.example.cardealershipkt.data.Room
 
 import android.content.Context
 import androidx.room.Database

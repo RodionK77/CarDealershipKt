@@ -1,5 +1,4 @@
-package com.example.cardealershipkt
-
+package com.example.cardealershipkt.presentation.UserPack
 import android.app.AlertDialog
 import android.os.Bundle
 import android.text.SpannableString
@@ -7,11 +6,11 @@ import android.text.method.LinkMovementMethod
 import android.text.util.Linkify
 import android.view.MenuItem
 import android.widget.TextView
-import android.widget.Toolbar
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.toBitmap
-import com.example.cardealershipkt.databinding.ActivityMapBinding
+import com.example.cardealershipkt.presentation.MainViewModel
+import com.example.cardealershipkt.R
 import com.yandex.mapkit.Animation
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point

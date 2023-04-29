@@ -1,9 +1,11 @@
-package com.example.cardealershipkt
+package com.example.cardealershipkt.data
 
 import android.util.Log
 import androidx.lifecycle.LiveData
-import com.example.cardealershipkt.API.CarsApi
-import com.example.cardealershipkt.API.RetrofitService
+import com.example.cardealershipkt.data.API.CarsApi
+import com.example.cardealershipkt.data.API.RetrofitService
+import com.example.cardealershipkt.data.Room.CarDatabase
+import com.example.cardealershipkt.data.Room.CarItem
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import retrofit2.Call
@@ -43,7 +45,7 @@ class CarRepository {
                 }
 
                 override fun onFailure(call: Call<List<CarItem>>, t: Throwable) {
-                    Log.d("VMR", "Данные не загрузились", t)
+                    Log.d("R", "Данные не загрузились", t)
                 }
             })
     }

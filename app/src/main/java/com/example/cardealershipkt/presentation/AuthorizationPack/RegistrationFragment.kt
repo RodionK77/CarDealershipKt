@@ -1,9 +1,8 @@
-package com.example.cardealershipkt
+package com.example.cardealershipkt.presentation.AuthorizationPack
 
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.InputType
-import android.text.TextUtils
 import android.text.method.PasswordTransformationMethod
 import android.view.LayoutInflater
 import android.view.MotionEvent
@@ -14,6 +13,10 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.example.cardealershipkt.presentation.MainViewModel
+import com.example.cardealershipkt.R
+import com.example.cardealershipkt.domain.User
+import com.example.cardealershipkt.presentation.UserPack.UserFragment
 import com.example.cardealershipkt.databinding.FragmentRegistrationBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference

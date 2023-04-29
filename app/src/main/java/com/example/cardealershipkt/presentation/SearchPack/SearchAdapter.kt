@@ -1,4 +1,4 @@
-package com.example.cardealershipkt
+package com.example.cardealershipkt.presentation.SearchPack
 
 import android.content.Context
 import android.content.Intent
@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cardealershipkt.presentation.HomePack.CarInfoActivity
+import com.example.cardealershipkt.R
+import com.example.cardealershipkt.data.Room.CarItem
 import com.squareup.picasso.Picasso
 import java.io.Serializable
 

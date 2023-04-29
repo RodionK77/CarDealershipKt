@@ -1,23 +1,20 @@
-package com.example.cardealershipkt
+package com.example.cardealershipkt.presentation.HomePack
 
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.activityViewModels
+import com.example.cardealershipkt.presentation.MainViewModel
+import com.example.cardealershipkt.R
+import com.example.cardealershipkt.domain.User
+import com.example.cardealershipkt.data.Room.CarItem
 import com.example.cardealershipkt.databinding.ActivityCarinfoBinding
-import com.example.cardealershipkt.databinding.ActivityMainBinding
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import com.squareup.picasso.Picasso
 import java.io.Serializable
 
@@ -56,7 +53,9 @@ class CarInfoActivity : AppCompatActivity(), Serializable {
                     user = task.result.getValue(User::class.java)!!
                     bookstores = user!!.bookstores
                     if (bookstores!!.contains("${item.id}-")) {
-                        binding.ivBookmarkInfo.setColorFilter(ContextCompat.getColor(applicationContext, R.color.mark_true))
+                        binding.ivBookmarkInfo.setColorFilter(ContextCompat.getColor(applicationContext,
+                            R.color.mark_true
+                        ))
                         book_set = true
                     }
                 }
@@ -73,13 +72,17 @@ class CarInfoActivity : AppCompatActivity(), Serializable {
             if (currentUser != null) {
                 if (book_set) {
                     user!!.delBookstores(item.id!!)
-                    binding.ivBookmarkInfo.setColorFilter(ContextCompat.getColor(applicationContext, R.color.mark_false))
+                    binding.ivBookmarkInfo.setColorFilter(ContextCompat.getColor(applicationContext,
+                        R.color.mark_false
+                    ))
                     Toast.makeText(applicationContext, getText(R.string.del_bookmark), Toast.LENGTH_SHORT).show()
                     book_set = false
                     mDataBase!!.setValue(user)
                 } else if (!book_set) {
                     user!!.addBookstores(item.id!!)
-                    binding.ivBookmarkInfo.setColorFilter(ContextCompat.getColor(applicationContext, R.color.mark_true))
+                    binding.ivBookmarkInfo.setColorFilter(ContextCompat.getColor(applicationContext,
+                        R.color.mark_true
+                    ))
                     book_set = true
                     mDataBase!!.setValue(user)
                     Toast.makeText(applicationContext, getText(R.string.add_bookmark), Toast.LENGTH_SHORT).show()

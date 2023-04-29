@@ -1,19 +1,14 @@
-package com.example.cardealershipkt
+package com.example.cardealershipkt.presentation.HomePack
 
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.cardealershipkt.presentation.MainViewModel
+import com.example.cardealershipkt.R
+import com.example.cardealershipkt.presentation.SearchPack.SearchAdapter
 import com.example.cardealershipkt.databinding.ActivityCompilationBinding
-import com.squareup.picasso.Picasso
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import java.io.Serializable
 
 class CarCompilationActivity : AppCompatActivity(), Serializable {

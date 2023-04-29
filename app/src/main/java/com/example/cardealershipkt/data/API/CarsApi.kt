@@ -1,6 +1,6 @@
-package com.example.cardealershipkt.API
+package com.example.cardealershipkt.data.API
 
-import com.example.cardealershipkt.CarItem
+import com.example.cardealershipkt.data.Room.CarItem
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET

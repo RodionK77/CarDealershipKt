@@ -1,4 +1,4 @@
-package com.example.cardealershipkt
+package com.example.cardealershipkt.data.Room
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
