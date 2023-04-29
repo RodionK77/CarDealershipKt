@@ -19,7 +19,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 
 class RegistrationFragment : Fragment() {
-    //private var callbacks: Callbacks? = null
 
     private var _binding: FragmentRegistrationBinding? = null
     private val binding get() = _binding!!
@@ -80,7 +79,7 @@ class RegistrationFragment : Fragment() {
                             if (task.isSuccessful) {
                                 Toast.makeText(
                                     context,
-                                    "$role успешно зарегестрировался",
+                                    "$role ${getText(R.string.reg_yes)}",
                                     Toast.LENGTH_SHORT
                                 ).show()
                                 val name: String = binding.etAdminName.text.toString()
@@ -108,17 +107,15 @@ class RegistrationFragment : Fragment() {
                                 fr.setArguments(bundle)
                                 parentFragmentManager.beginTransaction()
                                     .replace(R.id.control_fr, fr).commit()
-                                //callbacks.controlFragmentSelected(fr)
-                                //ControlFragment.changeFragmentToUser(newUser);
                             } else Toast.makeText(
                                 context,
-                                "При регистрации произошла ошибка.\nПопробуйте ещё раз",
+                                getText(R.string.not_reg),
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
-                    } else Toast.makeText(context, "Неверный защитный код", Toast.LENGTH_LONG).show()
-                } else Toast.makeText(context, "Пароли не совпадают", Toast.LENGTH_LONG).show()
-            } else Toast.makeText(context, "Заполните все поля!", Toast.LENGTH_LONG).show()
+                    } else Toast.makeText(context, getText(R.string.not_code), Toast.LENGTH_LONG).show()
+                } else Toast.makeText(context, getText(R.string.not_pass), Toast.LENGTH_LONG).show()
+            } else Toast.makeText(context, getText(R.string.not_all_fields), Toast.LENGTH_LONG).show()
         }
     }
 

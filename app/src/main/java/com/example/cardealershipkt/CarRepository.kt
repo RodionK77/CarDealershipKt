@@ -39,13 +39,11 @@ class CarRepository {
                     call: Call<List<CarItem>>,
                     response: Response<List<CarItem>>
                 ) {
-                    print("Данные ЕСТЬ")
                     saveCarsToDatabase(response.body()!!)
                 }
 
                 override fun onFailure(call: Call<List<CarItem>>, t: Throwable) {
-                    Log.v("ViewModelRef", "Данные не загрузились", t)
-                    print("Данные не загрузились")
+                    Log.d("VMR", "Данные не загрузились", t)
                 }
             })
     }

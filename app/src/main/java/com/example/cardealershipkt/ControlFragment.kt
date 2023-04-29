@@ -21,7 +21,6 @@ class ControlFragment : Fragment(), Serializable {
 
     private var _binding:FragmentControlBinding? = null
     private val binding get() = _binding!!
-    private var mAuth: FirebaseAuth? = null
     private lateinit var mDataBase: DatabaseReference
     var currentUser: FirebaseUser? = null
     var user: User? = null
@@ -43,29 +42,21 @@ class ControlFragment : Fragment(), Serializable {
             mDataBase = viewModel.getFirebaseDatabase("Users").child(currentUser!!.uid)
             mDataBase!!.get().addOnCompleteListener { task ->
                 if (!task.isSuccessful) {
-                    Toast.makeText(context, "Ошибка доступа", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, getText(R.string.access_denied), Toast.LENGTH_SHORT).show()
                     val fr = RegistrationFragment()
                     parentFragmentManager.beginTransaction().replace(R.id.control_fr, fr).commit()
-                    //changeFragmentToRegistration();
                 } else {
                     user = task.result.getValue(User::class.java)
-                    //Toast.makeText(context,user.getName(), Toast.LENGTH_SHORT).show();
                     val fr = UserFragment()
                     val bundle = Bundle()
                     bundle.putSerializable("1", user)
                     fr.setArguments(bundle)
                     parentFragmentManager.beginTransaction().replace(R.id.control_fr, fr).commit()
-                    //changeFragmentToUser(user);*/
                 }
             }
-            //getDataFromDB();
-            //Toast.makeText(context,user.getUid(), Toast.LENGTH_SHORT).show();
-            //changeFragmentToUser(user);
         } else {
             val fr = RegistrationFragment()
             parentFragmentManager.beginTransaction().replace(R.id.control_fr, fr).commit()
-            /*callbacks.controlFragmentSelected(fr)*/
-            //changeFragmentToRegistration();
         }
     }
 

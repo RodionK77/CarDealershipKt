@@ -11,8 +11,6 @@ import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
 
-    //var mAuth = FirebaseAuth.getInstance()
-    //var currentUser = mAuth.currentUser
     private val repository = CarRepository()
     val carListLiveData = repository.getCars()
     val adminCode = "12345"

@@ -36,16 +36,15 @@ class SettingsActivity : AppCompatActivity(), Serializable {
 
         binding.btnExit.setOnClickListener {
             viewModel.getAuth().signOut()
-            Toast.makeText(applicationContext, "Пользователь вышел из аккаунта", Toast.LENGTH_SHORT)
+            Toast.makeText(applicationContext, getText(R.string.user_exit), Toast.LENGTH_SHORT)
                 .show()
             finish()
-            //ControlFragment.changeFragmentToEntrance();
         }
         currentUser = viewModel.getUser()
         mDataBase = viewModel.getFirebaseDatabase("Users").child(currentUser!!.uid)
         mDataBase!!.get().addOnCompleteListener { task ->
             if (!task.isSuccessful) {
-                Toast.makeText(applicationContext, "Ошибка доступа", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, getText(R.string.access_denied), Toast.LENGTH_SHORT).show()
             } else {
                 user = task.result.getValue(User::class.java)!!
                 binding.etSettingsMail.setText(user.email)
@@ -64,7 +63,7 @@ class SettingsActivity : AppCompatActivity(), Serializable {
         user.email = binding.etSettingsMail.text.toString()
         user.phone = binding.etSettingsPhone.text.toString()
         mDataBase!!.setValue(user)
-        Toast.makeText(applicationContext, "Изменения внесены", Toast.LENGTH_SHORT).show()
+        Toast.makeText(applicationContext, getText(R.string.yes_changes), Toast.LENGTH_SHORT).show()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

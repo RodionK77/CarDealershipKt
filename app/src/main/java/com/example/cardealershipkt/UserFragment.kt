@@ -27,10 +27,6 @@ class UserFragment : Fragment(), Serializable {
 
     private val viewModel: MainViewModel by activityViewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -46,11 +42,10 @@ class UserFragment : Fragment(), Serializable {
         user = bundle!!.getSerializable("1") as User?
         mAuth = FirebaseAuth.getInstance()
         checkUser()
-        //currentUser = mAuth!!.currentUser
         mDataBase = viewModel.getFirebaseDatabase("Users").child(currentUser!!.uid)
         mDataBase!!.get().addOnCompleteListener { task ->
             if (!task.isSuccessful) {
-                Toast.makeText(context, "Ошибка доступа", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, getText(R.string.access_denied), Toast.LENGTH_SHORT).show()
             } else {
                 user = task.result.getValue(User::class.java)
             }
@@ -84,12 +79,12 @@ class UserFragment : Fragment(), Serializable {
                 mDataBase = viewModel.getFirebaseDatabase("Promo")
                 mDataBase!!.get().addOnCompleteListener { task ->
                     if (!task.isSuccessful) {
-                        Toast.makeText(context, "Ошибка доступа", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, getText(R.string.access_denied), Toast.LENGTH_SHORT).show()
                     } else {
                         mDataBase!!.setValue(id)
                     }
                 }
-            } else Toast.makeText(context, "Неверный ID", Toast.LENGTH_SHORT).show()
+            } else Toast.makeText(context, getText(R.string.not_id), Toast.LENGTH_SHORT).show()
         })
     }
 
@@ -100,12 +95,11 @@ class UserFragment : Fragment(), Serializable {
 
     private fun checkUser(){
         currentUser = viewModel.getUser()
-        Log.d("TTT", currentUser.toString())
         if (currentUser != null) {
             mDataBase = viewModel.getFirebaseDatabase("Users").child(currentUser!!.uid)
             mDataBase!!.get().addOnCompleteListener { task ->
                 if (!task.isSuccessful) {
-                    Toast.makeText(context, "Ошибка доступа", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, getText(R.string.access_denied), Toast.LENGTH_SHORT).show()
                 } else {
                     user = task.result.getValue(User::class.java)
                 }

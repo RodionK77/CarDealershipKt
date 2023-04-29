@@ -50,22 +50,22 @@ class HomeFragment : Fragment() {
         })
         binding.cardView1.setOnClickListener(View.OnClickListener {
             val intent = Intent(context, CarCompilationActivity::class.java)
-            intent.putExtra("EXTRA_MESSAGE", "Внедорожник")
+            intent.putExtra("EXTRA_MESSAGE", getText(R.string.off_road))
             context?.startActivity(intent)
         })
         binding.cardView2.setOnClickListener(View.OnClickListener {
             val intent = Intent(context, CarCompilationActivity::class.java)
-            intent.putExtra("EXTRA_MESSAGE", "Седан")
+            intent.putExtra("EXTRA_MESSAGE", getText(R.string.sedan))
             context?.startActivity(intent)
         })
         binding.cardView3.setOnClickListener(View.OnClickListener {
             val intent = Intent(context, CarCompilationActivity::class.java)
-            intent.putExtra("EXTRA_MESSAGE", "Спорт классика")
+            intent.putExtra("EXTRA_MESSAGE", getText(R.string.sport_classic))
             context?.startActivity(intent)
         })
         binding.cardView4.setOnClickListener(View.OnClickListener {
             val intent = Intent(context, CarCompilationActivity::class.java)
-            intent.putExtra("EXTRA_MESSAGE", "Кабриолет")
+            intent.putExtra("EXTRA_MESSAGE", getText(R.string.convertible))
             context?.startActivity(intent)
         })
     }
@@ -77,7 +77,7 @@ class HomeFragment : Fragment() {
         mDataBase = viewModel.getFirebaseDatabase("Promo")
         mDataBase.get().addOnCompleteListener(OnCompleteListener<DataSnapshot> { task ->
             if (!task.isSuccessful) {
-                Toast.makeText(context, "Ошибка доступа", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, getText(R.string.access_denied), Toast.LENGTH_SHORT).show()
             } else {
 
                 idx = task.result.getValue(Int::class.java)!!

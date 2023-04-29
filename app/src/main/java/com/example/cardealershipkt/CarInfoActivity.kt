@@ -51,13 +51,12 @@ class CarInfoActivity : AppCompatActivity(), Serializable {
             mDataBase = viewModel.getFirebaseDatabase("Users").child(currentUser!!.uid)
             mDataBase!!.get().addOnCompleteListener { task ->
                 if (!task.isSuccessful) {
-                    Toast.makeText(applicationContext, "Ошибка доступа", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, getText(R.string.access_denied), Toast.LENGTH_SHORT).show()
                 } else {
                     user = task.result.getValue(User::class.java)!!
                     bookstores = user!!.bookstores
                     if (bookstores!!.contains("${item.id}-")) {
                         binding.ivBookmarkInfo.setColorFilter(ContextCompat.getColor(applicationContext, R.color.mark_true))
-                        //bookmark.setBackgroundResource(R.drawable.ic_bookmark_true);
                         book_set = true
                     }
                 }
@@ -74,23 +73,21 @@ class CarInfoActivity : AppCompatActivity(), Serializable {
             if (currentUser != null) {
                 if (book_set) {
                     user!!.delBookstores(item.id!!)
-                    //bookmark.setBackgroundResource(R.drawable.ic_bookmark_false);
                     binding.ivBookmarkInfo.setColorFilter(ContextCompat.getColor(applicationContext, R.color.mark_false))
-                    Toast.makeText(applicationContext, "Закладка удалена", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, getText(R.string.del_bookmark), Toast.LENGTH_SHORT).show()
                     book_set = false
                     mDataBase!!.setValue(user)
                 } else if (!book_set) {
                     user!!.addBookstores(item.id!!)
                     binding.ivBookmarkInfo.setColorFilter(ContextCompat.getColor(applicationContext, R.color.mark_true))
-                    //bookmark.setBackgroundResource(R.drawable.ic_bookmark_true);
                     book_set = true
                     mDataBase!!.setValue(user)
-                    Toast.makeText(applicationContext, "Закладка добавлена", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, getText(R.string.add_bookmark), Toast.LENGTH_SHORT).show()
                 }
             } else {
                 Toast.makeText(
                     applicationContext,
-                    "Для добавления закладок - зарегестрируйтесь",
+                    getText(R.string.reg_for_bookmark),
                     Toast.LENGTH_SHORT
                 ).show()
             }

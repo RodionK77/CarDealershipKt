@@ -82,7 +82,7 @@ class UsersListActivity : AppCompatActivity(), Serializable {
             mDataBase!!.setValue(user)
         } else Toast.makeText(
             applicationContext,
-            "Вы не можете изменить свою роль",
+            getText(R.string.not_change_role),
             Toast.LENGTH_SHORT
         ).show()
         return super.onContextItemSelected(item)

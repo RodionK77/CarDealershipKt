@@ -82,19 +82,17 @@ class EntranceFragment : Fragment() {
                                     if (!task.isSuccessful) {
                                         Toast.makeText(
                                             context,
-                                            "Ошибка доступа",
+                                            getText(R.string.access_denied),
                                             Toast.LENGTH_SHORT
                                         ).show()
                                         val fr = EntranceFragment()
                                         parentFragmentManager.beginTransaction().replace(R.id.control_fr, fr).commit()
-                                        //ControlFragment.changeFragmentToEntrance();
                                     } else {
                                         user = task.result.getValue(User::class.java) as User
                                         if (user.role == "user" && role == "user") {
-                                            //Toast.makeText(context,user.getName(), Toast.LENGTH_SHORT).show();
                                             Toast.makeText(
                                                 context,
-                                                "Пользователь зашёл",
+                                                getText(R.string.user_enter),
                                                 Toast.LENGTH_SHORT
                                             ).show()
                                             val fr = UserFragment()
@@ -102,22 +100,19 @@ class EntranceFragment : Fragment() {
                                             bundle.putSerializable("1", user)
                                             fr.setArguments(bundle)
                                             parentFragmentManager.beginTransaction().replace(R.id.control_fr, fr).commit()
-                                            //ControlFragment.changeFragmentToUser(user);
                                         } else if (user.role == "admin" && role == "user") {
                                             Toast.makeText(
                                                 context,
-                                                "Вы не являетесь обычным пользователем",
+                                                getText(R.string.not_user),
                                                 Toast.LENGTH_SHORT
                                             ).show()
                                             viewModel.getAuth().signOut()
                                             val fr = EntranceFragment()
                                             parentFragmentManager.beginTransaction().replace(R.id.control_fr, fr).commit()
-                                            //ControlFragment.changeFragmentToEntrance();
                                         } else if (user.role == "admin" && role == "admin") {
-                                            //Toast.makeText(context,user.getName(), Toast.LENGTH_SHORT).show();
                                             Toast.makeText(
                                                 context,
-                                                "Пользователь зашёл",
+                                                getText(R.string.user_enter),
                                                 Toast.LENGTH_SHORT
                                             ).show()
                                             val fr = UserFragment()
@@ -125,29 +120,27 @@ class EntranceFragment : Fragment() {
                                             bundle.putSerializable("1", user)
                                             fr.setArguments(bundle)
                                             parentFragmentManager.beginTransaction().replace(R.id.control_fr, fr).commit()
-                                            //ControlFragment.changeFragmentToUser(user);
                                         } else if (user.role == "user" && role == "admin"){
                                             Toast.makeText(
                                                 context,
-                                                "Вы не являетесь администратором",
+                                                getText(R.string.not_admin),
                                                 Toast.LENGTH_SHORT
                                             ).show()
                                             viewModel.getAuth().signOut()
                                             val fr = EntranceFragment()
                                             parentFragmentManager.beginTransaction().replace(R.id.control_fr, fr).commit()
-                                            //ControlFragment.changeFragmentToEntrance();
                                         }
                                     }
                                 }
                             } else Toast.makeText(
                                 context,
-                                "Вход неудался.\nПопробуйте ещё раз",
+                                getText(R.string.not_enter),
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
 
-                    } else Toast.makeText(context, "Неверный защитный код", Toast.LENGTH_LONG).show()
-            } else Toast.makeText(context, "Заполните все поля!", Toast.LENGTH_LONG).show()
+                    } else Toast.makeText(context, getText(R.string.not_code), Toast.LENGTH_LONG).show()
+            } else Toast.makeText(context, getText(R.string.not_all_fields), Toast.LENGTH_LONG).show()
         }
     }
 

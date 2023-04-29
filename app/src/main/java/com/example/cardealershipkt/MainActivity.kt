@@ -46,9 +46,5 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
-
-        fun controlFragmentSelected(fragment: Fragment?) {
-            fragmentManager.beginTransaction().replace(R.id.control_fr, fragment!!).commit()
-        }
     }
 }

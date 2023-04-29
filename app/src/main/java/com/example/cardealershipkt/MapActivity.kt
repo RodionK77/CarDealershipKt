@@ -39,7 +39,7 @@ class MapActivity: AppCompatActivity() {
             .setMessage(getText(R.string.map_dealership_description))
             .setView(getSpanPhone("\t\t+7 (495) 777-77-11"))
             .setIcon(R.drawable.ic_car)
-            .setPositiveButton("Понятно") {
+            .setPositiveButton(R.string.map_understand) {
                     dialog, id ->  dialog.cancel()
             }
         builder.create().show()
@@ -52,7 +52,7 @@ class MapActivity: AppCompatActivity() {
             .setMessage(getText(R.string.map_dealership_description))
             .setView(getSpanPhone("\t\t+7 (495) 777-77-22"))
             .setIcon(R.drawable.ic_car)
-            .setPositiveButton("Понятно") {
+            .setPositiveButton(getText(R.string.map_understand)) {
                     dialog, id ->  dialog.cancel()
             }
         builder.create().show()
@@ -64,7 +64,7 @@ class MapActivity: AppCompatActivity() {
             .setMessage(getText(R.string.map_dealership_description))
             .setView(getSpanPhone("\t\t+7 (495) 777-77-33"))
             .setIcon(R.drawable.ic_car)
-            .setPositiveButton("Понятно") {
+            .setPositiveButton(R.string.map_understand) {
                     dialog, id ->  dialog.cancel()
             }
         builder.create().show()
@@ -76,7 +76,7 @@ class MapActivity: AppCompatActivity() {
             .setMessage(getText(R.string.map_dealership_description))
             .setView(getSpanPhone("\t\t+7 (495) 777-77-44"))
             .setIcon(R.drawable.ic_car)
-            .setPositiveButton("Понятно") {
+            .setPositiveButton(R.string.map_understand) {
                     dialog, id ->  dialog.cancel()
             }
         builder.create().show()

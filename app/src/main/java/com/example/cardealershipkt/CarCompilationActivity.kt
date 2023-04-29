@@ -18,7 +18,6 @@ import java.io.Serializable
 
 class CarCompilationActivity : AppCompatActivity(), Serializable {
 
-    private var extra = 0
     private lateinit var str: String
     private var searchAdapter = SearchAdapter()
     lateinit var binding: ActivityCompilationBinding
@@ -33,7 +32,7 @@ class CarCompilationActivity : AppCompatActivity(), Serializable {
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         str = intent.getStringExtra("EXTRA_MESSAGE")!!
-        binding.toolbar2.title = "Подборка \"$str\""
+        binding.toolbar2.title = "${getText(R.string.compilation_title)} \"$str\""
         val layoutManager = LinearLayoutManager(this)
         binding.rvCompilation.layoutManager = layoutManager
         binding.rvCompilation.adapter = searchAdapter

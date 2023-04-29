@@ -32,11 +32,9 @@ class FavoritesActivity : AppCompatActivity(), Serializable {
     private var user2: User? = null
     private var str: String? = null
     private var searchAdapter = SearchAdapter()
-    var warning: TextView? = null
     var data: MutableList<CarItem>? = null
     lateinit var strList: List<String>
     var currentUser: FirebaseUser? = null
-    private var mAuth: FirebaseAuth? = null
     private var mDataBase: DatabaseReference? = null
     lateinit var binding: ActivityFavoritesBinding
 
@@ -58,8 +56,6 @@ class FavoritesActivity : AppCompatActivity(), Serializable {
         currentUser = viewModel.getUser()
         mDataBase = viewModel.getFirebaseDatabase("Users").child(currentUser!!.uid)
 
-        checkFav()
-
         viewModel.carListLiveData.observe(this) {
             data = it as MutableList<CarItem>?
         }
@@ -69,27 +65,17 @@ class FavoritesActivity : AppCompatActivity(), Serializable {
     private fun checkFav() {
         mDataBase!!.get().addOnCompleteListener { task ->
             if (!task.isSuccessful) {
-                Toast.makeText(applicationContext, "Ошибка доступа", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, getText(R.string.access_denied), Toast.LENGTH_SHORT).show()
             } else {
                 user = task.result.getValue(User::class.java)
                 str = user!!.bookstores
                 strList = str!!.split("-").dropLast(1)
                 if (str!!.isNotEmpty()) {
-                    Log.d("AAA", data.toString())
-                    Log.d("BBB", strList.toString())
                     for(i in strList){
                         data!!.removeAll { !strList.contains(it.id.toString()) }
                     }
-                    Log.d("AAA2", data.toString())
                     searchAdapter.items = data!!
                     searchAdapter.notifyDataSetChanged()
-                    /*for(i in str){
-                        GlobalScope.launch(Dispatchers.IO) {
-                            data.add(viewModel.getCar(i.toInt()))
-                        }
-                        searchAdapter.items = data
-                        searchAdapter.notifyDataSetChanged()
-                    }*/
                     binding.tvFavWarning.visibility = View.GONE
                     binding.rvFavorites.visibility = View.VISIBLE
                 } else {
