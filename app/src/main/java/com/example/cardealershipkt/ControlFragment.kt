@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
-import com.example.cardealershipkt.API.Callbacks
 import com.example.cardealershipkt.databinding.FragmentControlBinding
 import com.example.cardealershipkt.databinding.FragmentHomeBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -24,19 +23,10 @@ class ControlFragment : Fragment(), Serializable {
     private val binding get() = _binding!!
     private var mAuth: FirebaseAuth? = null
     private lateinit var mDataBase: DatabaseReference
-    private var callbacks: Callbacks? = null
     var currentUser: FirebaseUser? = null
     var user: User? = null
 
     private val viewModel: MainViewModel by activityViewModels()
-
-    fun getCallbacks(): Callbacks? {
-        return callbacks
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,19 +35,6 @@ class ControlFragment : Fragment(), Serializable {
     ): View? {
         _binding = FragmentControlBinding.inflate(inflater, container, false)
         return binding.root
-        //val fr = RegistrationFragment()
-        //fragmentManager = parentFragmentManager
-
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        //callbacks = context as Callbacks
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-       //callbacks = null
     }
 
     private fun userCheck() {

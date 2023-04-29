@@ -19,8 +19,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_map1"
-        android:layout_width="math_parent"
-        android:layout_height="math_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="20dp"
         app:cardBackgroundColor="@color/items_color"
         app:cardCornerRadius="20dp"
@@ -35,8 +35,8 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv_map2"
-                android:layout_width="math_parent"
-                android:layout_height="math_parent"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="20dp"
                 android:layout_marginTop="10dp"

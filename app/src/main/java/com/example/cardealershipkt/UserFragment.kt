@@ -69,6 +69,10 @@ class UserFragment : Fragment(), Serializable {
             intent.putExtra("EXTRA_MESSAGE", user)
             context?.startActivity(intent)
         }
+        binding.cvBtn2.setOnClickListener {
+            val intent = Intent(context, MapActivity::class.java)
+            context?.startActivity(intent)
+        }
         binding.cvBtn4.setOnClickListener {
             val intent = Intent(context, UsersListActivity::class.java)
             context?.startActivity(intent)

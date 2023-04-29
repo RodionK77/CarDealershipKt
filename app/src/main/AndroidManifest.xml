@@ -33,6 +33,9 @@
             android:name=".UsersListActivity"
             android:exported="true" />
         <activity
+            android:name=".MapActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="adjustPan"
             android:exported="true"

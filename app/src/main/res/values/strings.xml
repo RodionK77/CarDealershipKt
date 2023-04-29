@@ -40,4 +40,9 @@
     <string name="title_search">Поиск</string>
     <string name="title_user">Пользователь</string>
     <string name="title_map">Салоны на карте</string>
+    <string name="map_top_title">Северный автосалон"</string>
+    <string name="map_bottom_title">Южный автосалон"</string>
+    <string name="map_start_title">Западный автосалон"</string>
+    <string name="map_end_title">Восточный автосалон"</string>
+    <string name="map_dealership_description">\nЧасы работы: ПН-ПТ 09:00-21:00\nКонтактный телефон: "</string>
 </resources>
