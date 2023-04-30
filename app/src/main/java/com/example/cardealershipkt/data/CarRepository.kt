@@ -41,7 +41,7 @@ class CarRepository {
                     call: Call<List<CarItem>>,
                     response: Response<List<CarItem>>
                 ) {
-                    saveCarsToDatabase(response.body()!!)
+                    response.body()?.let { saveCarsToDatabase(it) }
                 }
 
                 override fun onFailure(call: Call<List<CarItem>>, t: Throwable) {

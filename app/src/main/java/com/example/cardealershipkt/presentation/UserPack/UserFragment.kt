@@ -43,15 +43,9 @@ class UserFragment : Fragment(), Serializable {
         val bundle = arguments
         user = bundle!!.getSerializable("1") as User?
         mAuth = FirebaseAuth.getInstance()
+
+
         checkUser()
-        mDataBase = viewModel.getFirebaseDatabase("Users").child(currentUser!!.uid)
-        mDataBase!!.get().addOnCompleteListener { task ->
-            if (!task.isSuccessful) {
-                Toast.makeText(context, getText(R.string.access_denied), Toast.LENGTH_SHORT).show()
-            } else {
-                user = task.result.getValue(User::class.java)
-            }
-        }
         if (user!!.role == "admin") {
             binding.userAdmin.visibility = View.VISIBLE
         }
@@ -104,9 +98,10 @@ class UserFragment : Fragment(), Serializable {
                     Toast.makeText(context, getText(R.string.access_denied), Toast.LENGTH_SHORT).show()
                 } else {
                     user = task.result.getValue(User::class.java)
+                    binding.tvUserCardName.text = user!!.name + " " + user!!.lastname
+                    binding.ProgressBar.visibility = View.GONE
                 }
             }
-            binding.tvUserCardName.text = user!!.name + " " + user!!.lastname
         }else {
             val fr = RegistrationFragment()
             parentFragmentManager.beginTransaction().replace(R.id.control_fr, fr).commit()

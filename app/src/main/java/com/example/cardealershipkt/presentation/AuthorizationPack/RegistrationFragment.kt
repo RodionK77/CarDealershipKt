@@ -47,6 +47,7 @@ class RegistrationFragment : Fragment() {
 
         checkPasswordVisible(binding.etAdminPassword)
         checkPasswordVisible(binding.etAdminPassword2)
+        checkPasswordVisible(binding.etAdminCode)
 
         mAuth = viewModel.getAuth()
 

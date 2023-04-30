@@ -50,6 +50,7 @@ class EntranceFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         checkPasswordVisible(binding.etAdminPasswordEnter)
+        checkPasswordVisible(binding.etAdminCodeEnter)
 
         mAuth = viewModel.getAuth()
 

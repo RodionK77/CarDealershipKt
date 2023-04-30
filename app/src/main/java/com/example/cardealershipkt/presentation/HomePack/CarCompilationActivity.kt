@@ -2,6 +2,7 @@ package com.example.cardealershipkt.presentation.HomePack
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -33,6 +34,9 @@ class CarCompilationActivity : AppCompatActivity(), Serializable {
         binding.rvCompilation.adapter = searchAdapter
 
         viewModel.getCarsCompilation(str).observe(this) { cars ->
+            if(cars.isNotEmpty()){
+                binding.ProgressBar.visibility = View.GONE
+            }
             searchAdapter.items = cars
             searchAdapter.notifyDataSetChanged()
         }

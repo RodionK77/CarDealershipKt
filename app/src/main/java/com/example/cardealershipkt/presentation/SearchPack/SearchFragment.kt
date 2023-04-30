@@ -2,6 +2,7 @@ package com.example.cardealershipkt.presentation.SearchPack
 
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -68,6 +69,9 @@ class SearchFragment : Fragment() {
         })
 
         viewModel.carListLiveData.observe(viewLifecycleOwner) { cars ->
+            if(cars.isNotEmpty()){
+                binding.ProgressBar.visibility = View.GONE
+            }
             adapter.items = cars
             adapter.notifyDataSetChanged()
         }

@@ -26,7 +26,7 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private lateinit var mDataBase: DatabaseReference
-    private lateinit var item: CarItem
+    private var item: CarItem? = null
     private lateinit var name: String
     private var idx = 1
 
@@ -47,9 +47,11 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.cardView0.setOnClickListener(View.OnClickListener {
-            val intent = Intent(context, CarInfoActivity::class.java)
-            intent.putExtra("EXTRA_MESSAGE", item)
-            context?.startActivity(intent)
+            if(item!=null) {
+                val intent = Intent(context, CarInfoActivity::class.java)
+                intent.putExtra("EXTRA_MESSAGE", item)
+                context?.startActivity(intent)
+            }
         })
         binding.cardView1.setOnClickListener(View.OnClickListener {
             val intent = Intent(context, CarCompilationActivity::class.java)
@@ -87,14 +89,14 @@ class HomeFragment : Fragment() {
                 GlobalScope.launch(Dispatchers.IO) {
                     item = viewModel.getCar(idx)
                     if(item!=null){
-                        name = item.name!!
+                        name = item!!.name!!
                         if (name.contains(" ")) {
                             name = name.substring(0, name.indexOf(" "))
                         }
                         withContext(Dispatchers.Main){
-                            binding.brandCard0.text = item.brand + " " + name
-                            binding.priceCard0.text = ("${item.price}₽").toString()
-                            Picasso.get().load(item.image).into(binding.ivCard0)
+                            binding.brandCard0.text = item!!.brand + " " + name
+                            binding.priceCard0.text = ("${item!!.price}₽").toString()
+                            Picasso.get().load(item!!.image).into(binding.ivCard0)
                         }
                     }
                 }
