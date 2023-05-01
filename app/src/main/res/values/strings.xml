@@ -69,4 +69,5 @@
     <string name="not_id">Неверный ID</string>
     <string name="change_role">Изменить роль на:</string>
     <string name="not_change_role">Вы не можете изменить свою роль</string>
+    <string name="search">Поиск</string>
 </resources>

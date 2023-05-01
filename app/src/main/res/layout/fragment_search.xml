@@ -39,7 +39,7 @@
         android:minWidth="100dp"
         android:maxWidth="180dp"
         android:backgroundTint="@color/card_background"
-        android:hint="Поиск"
+        android:hint="@string/search"
         android:textSize="10sp"
         android:singleLine="true"
         app:layout_constraintBottom_toBottomOf="@+id/btn_sort3"
