@@ -13,9 +13,11 @@ import com.example.cardealershipkt.R
 import com.example.cardealershipkt.data.Room.CarItem
 import com.squareup.picasso.Picasso
 import java.io.Serializable
+import java.util.*
 
 class SearchAdapter() : RecyclerView.Adapter<SearchAdapter.CarsViewHolder>(), Serializable {
     var items = listOf<CarItem>()
+    var itemsTmp = listOf<CarItem>()
     lateinit var context: Context
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -26,6 +28,11 @@ class SearchAdapter() : RecyclerView.Adapter<SearchAdapter.CarsViewHolder>(), Se
         val inflater = LayoutInflater.from(context)
         val view = inflater.inflate(layoutIdForListCars, parent, false)
         return CarsViewHolder(view)
+    }
+
+    fun setItemsList(carList: List<CarItem>) {
+        this.items = carList
+        this.itemsTmp = carList
     }
 
     override fun onBindViewHolder(holder: CarsViewHolder, position: Int) {
@@ -40,6 +47,24 @@ class SearchAdapter() : RecyclerView.Adapter<SearchAdapter.CarsViewHolder>(), Se
 
     override fun getItemCount(): Int {
         return items.size
+    }
+
+    fun filter(charText: String) {
+        var charText = charText
+        charText = charText.lowercase(Locale.getDefault())
+        if (charText.isEmpty()) {
+            items = itemsTmp
+        } else {
+            val filteredList = mutableListOf<CarItem>()
+            for (wp in itemsTmp) {
+                val str = wp.brand + wp.name
+                if (str.lowercase(Locale.getDefault()).contains(charText.filter { !it.isWhitespace() }) ) {
+                    filteredList.add(wp)
+                }
+            }
+            items = filteredList
+        }
+        notifyDataSetChanged()
     }
 
     inner class CarsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), Serializable {

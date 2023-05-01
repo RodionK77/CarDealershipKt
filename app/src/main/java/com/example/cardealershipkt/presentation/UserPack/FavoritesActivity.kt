@@ -67,7 +67,8 @@ class FavoritesActivity : AppCompatActivity(), Serializable {
                     for(i in strList){
                         data!!.removeAll { !strList.contains(it.id.toString()) }
                     }
-                    searchAdapter.items = data!!
+                    searchAdapter.setItemsList(data!!)
+                    //searchAdapter.items = data!!
                     searchAdapter.notifyDataSetChanged()
                     binding.tvFavWarning.visibility = View.GONE
                     binding.rvFavorites.visibility = View.VISIBLE

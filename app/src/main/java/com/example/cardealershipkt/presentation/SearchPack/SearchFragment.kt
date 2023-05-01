@@ -2,11 +2,15 @@ package com.example.cardealershipkt.presentation.SearchPack
 
 import android.os.Build
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.annotation.RequiresApi
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -46,11 +50,13 @@ class SearchFragment : Fragment() {
 
         binding.btnSort1.setOnClickListener(View.OnClickListener {
             if(!sort){
-                adapter.items =  adapter.items.sortedBy { it.price }
+                adapter.setItemsList(adapter.items.sortedBy { it.price })
+                //adapter.items =  adapter.items.sortedBy { it.price }
                 adapter.notifyDataSetChanged()
                 sort = true
             }else {
-                adapter.items =  adapter.items.sortedBy { it.price }.reversed()
+                adapter.setItemsList(adapter.items.sortedBy { it.price }.reversed())
+                //adapter.items =  adapter.items.sortedBy { it.price }.reversed()
                 adapter.notifyDataSetChanged()
                 sort = false
             }
@@ -58,13 +64,31 @@ class SearchFragment : Fragment() {
         })
         binding.btnSort3.setOnClickListener(View.OnClickListener {
             if(!sortA){
-                adapter.items =  adapter.items.sortedBy { it.brand }
+                adapter.setItemsList(adapter.items.sortedBy { it.brand })
+                //adapter.items =  adapter.items.sortedBy { it.brand }
                 adapter.notifyDataSetChanged()
                 sortA = true
             }else {
-                adapter.items =  adapter.items.sortedBy { it.brand }.reversed()
+                adapter.setItemsList(adapter.items.sortedBy { it.brand }.reversed())
+                //adapter.items =  adapter.items.sortedBy { it.brand }.reversed()
                 adapter.notifyDataSetChanged()
                 sortA = false
+            }
+        })
+
+        binding.btnSearch.addTextChangedListener(object : TextWatcher {
+
+            override fun afterTextChanged(s: Editable) {
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence, start: Int,
+                                           count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence, start: Int,
+                                       before: Int, count: Int) {
+                adapter.filter(s.toString())
             }
         })
 
@@ -72,7 +96,7 @@ class SearchFragment : Fragment() {
             if(cars.isNotEmpty()){
                 binding.ProgressBar.visibility = View.GONE
             }
-            adapter.items = cars
+            adapter.setItemsList(cars)
             adapter.notifyDataSetChanged()
         }
     }

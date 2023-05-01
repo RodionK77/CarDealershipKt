@@ -27,9 +27,26 @@
         android:text="@string/alphabet"
         android:textSize="10sp"
         android:layout_marginTop="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/btn_search"
         app:layout_constraintStart_toEndOf="@id/btn_sort1"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/btn_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:minWidth="100dp"
+        android:maxWidth="180dp"
+        android:backgroundTint="@color/card_background"
+        android:hint="Поиск"
+        android:textSize="10sp"
+        android:singleLine="true"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_sort3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_sort3"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <ProgressBar
         android:id="@+id/ProgressBar"
@@ -45,10 +62,10 @@
         android:id="@+id/rv_cars"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:paddingTop="?attr/actionBarSize"
+        android:layout_marginTop="52dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/btn_sort3">
+        app:layout_constraintTop_toBottomOf="@+id/btn_sort3">
 
     </androidx.recyclerview.widget.RecyclerView>
 
