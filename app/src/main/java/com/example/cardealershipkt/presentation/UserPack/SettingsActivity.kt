@@ -6,10 +6,11 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.example.cardealershipkt.presentation.MainViewModel
+import com.example.cardealershipkt.presentation.ViewModel.MainViewModel
 import com.example.cardealershipkt.R
 import com.example.cardealershipkt.domain.User
 import com.example.cardealershipkt.databinding.ActivitySettingsBinding
+import com.example.cardealershipkt.presentation.ViewModel.MainViewModelFactory
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import java.io.Serializable
@@ -21,7 +22,7 @@ class SettingsActivity : AppCompatActivity(), Serializable {
     private lateinit var user: User
     lateinit var binding: ActivitySettingsBinding
 
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels{ MainViewModelFactory(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

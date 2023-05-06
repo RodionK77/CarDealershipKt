@@ -8,11 +8,12 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.example.cardealershipkt.presentation.MainViewModel
+import com.example.cardealershipkt.presentation.ViewModel.MainViewModel
 import com.example.cardealershipkt.R
 import com.example.cardealershipkt.domain.User
 import com.example.cardealershipkt.data.Room.CarItem
 import com.example.cardealershipkt.databinding.ActivityCarinfoBinding
+import com.example.cardealershipkt.presentation.ViewModel.MainViewModelFactory
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.squareup.picasso.Picasso
@@ -33,7 +34,7 @@ class CarInfoActivity : AppCompatActivity(), Serializable {
     private var book_set = false
     lateinit var binding: ActivityCarinfoBinding
 
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels{ MainViewModelFactory(this) }
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {

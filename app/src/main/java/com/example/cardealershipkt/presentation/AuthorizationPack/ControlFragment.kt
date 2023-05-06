@@ -7,11 +7,12 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.example.cardealershipkt.presentation.MainViewModel
+import com.example.cardealershipkt.presentation.ViewModel.MainViewModel
 import com.example.cardealershipkt.R
 import com.example.cardealershipkt.domain.User
 import com.example.cardealershipkt.presentation.UserPack.UserFragment
 import com.example.cardealershipkt.databinding.FragmentControlBinding
+import com.example.cardealershipkt.presentation.ViewModel.MainViewModelFactory
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import java.io.Serializable
@@ -24,7 +25,7 @@ class ControlFragment : Fragment(), Serializable {
     var currentUser: FirebaseUser? = null
     var user: User? = null
 
-    private val viewModel: MainViewModel by activityViewModels()
+    private val viewModel: MainViewModel by activityViewModels{ MainViewModelFactory(requireContext()) }
 
     override fun onCreateView(
         inflater: LayoutInflater,

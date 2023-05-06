@@ -4,19 +4,17 @@ import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SearchView
 import androidx.annotation.RequiresApi
-import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.cardealershipkt.presentation.MainViewModel
+import com.example.cardealershipkt.presentation.ViewModel.MainViewModel
 import com.example.cardealershipkt.data.Room.CarItem
 import com.example.cardealershipkt.databinding.FragmentSearchBinding
+import com.example.cardealershipkt.presentation.ViewModel.MainViewModelFactory
 
 class SearchFragment : Fragment() {
 
@@ -27,7 +25,7 @@ class SearchFragment : Fragment() {
     private var sortA = false
     private val adapter: SearchAdapter = SearchAdapter()
 
-    private val viewModel: MainViewModel by activityViewModels()
+    private val viewModel: MainViewModel by activityViewModels{ MainViewModelFactory(requireContext()) }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     override fun onCreateView(

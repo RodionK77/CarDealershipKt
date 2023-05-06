@@ -13,11 +13,12 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.example.cardealershipkt.presentation.MainViewModel
+import com.example.cardealershipkt.presentation.ViewModel.MainViewModel
 import com.example.cardealershipkt.R
 import com.example.cardealershipkt.domain.User
 import com.example.cardealershipkt.presentation.UserPack.UserFragment
 import com.example.cardealershipkt.databinding.FragmentEntranceBinding
+import com.example.cardealershipkt.presentation.ViewModel.MainViewModelFactory
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
@@ -34,7 +35,7 @@ class EntranceFragment : Fragment() {
     private var currentUser: FirebaseUser? = null
     private lateinit var user: User
 
-    private val viewModel: MainViewModel by activityViewModels()
+    private val viewModel: MainViewModel by activityViewModels{ MainViewModelFactory(requireContext()) }
 
 
     override fun onCreateView(

@@ -8,10 +8,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.example.cardealershipkt.presentation.MainViewModel
+import com.example.cardealershipkt.presentation.ViewModel.MainViewModel
 import com.example.cardealershipkt.R
 import com.example.cardealershipkt.data.Room.CarItem
 import com.example.cardealershipkt.databinding.FragmentHomeBinding
+import com.example.cardealershipkt.presentation.ViewModel.MainViewModelFactory
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseReference
@@ -30,7 +31,7 @@ class HomeFragment : Fragment() {
     private lateinit var name: String
     private var idx = 1
 
-    private val viewModel: MainViewModel by activityViewModels()
+    private val viewModel: MainViewModel by activityViewModels{ MainViewModelFactory(requireContext()) }
 
 
 

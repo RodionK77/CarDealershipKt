@@ -12,7 +12,8 @@ import com.example.cardealershipkt.*
 import com.example.cardealershipkt.presentation.AuthorizationPack.RegistrationFragment
 import com.example.cardealershipkt.databinding.FragmentUserBinding
 import com.example.cardealershipkt.domain.User
-import com.example.cardealershipkt.presentation.MainViewModel
+import com.example.cardealershipkt.presentation.ViewModel.MainViewModel
+import com.example.cardealershipkt.presentation.ViewModel.MainViewModelFactory
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
@@ -27,7 +28,7 @@ class UserFragment : Fragment(), Serializable {
     private var mAuth: FirebaseAuth? = null
     private var mDataBase: DatabaseReference? = null
 
-    private val viewModel: MainViewModel by activityViewModels()
+    private val viewModel: MainViewModel by activityViewModels{ MainViewModelFactory(requireContext()) }
 
     override fun onCreateView(
         inflater: LayoutInflater,

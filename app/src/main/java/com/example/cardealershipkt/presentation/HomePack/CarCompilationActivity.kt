@@ -6,10 +6,11 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.cardealershipkt.presentation.MainViewModel
+import com.example.cardealershipkt.presentation.ViewModel.MainViewModel
 import com.example.cardealershipkt.R
 import com.example.cardealershipkt.presentation.SearchPack.SearchAdapter
 import com.example.cardealershipkt.databinding.ActivityCompilationBinding
+import com.example.cardealershipkt.presentation.ViewModel.MainViewModelFactory
 import java.io.Serializable
 
 class CarCompilationActivity : AppCompatActivity(), Serializable {
@@ -18,7 +19,7 @@ class CarCompilationActivity : AppCompatActivity(), Serializable {
     private var searchAdapter = SearchAdapter()
     lateinit var binding: ActivityCompilationBinding
 
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels{ MainViewModelFactory(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

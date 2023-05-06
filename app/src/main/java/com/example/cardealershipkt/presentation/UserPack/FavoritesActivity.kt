@@ -14,7 +14,8 @@ import com.example.cardealershipkt.presentation.SearchPack.SearchAdapter
 import com.example.cardealershipkt.data.Room.CarItem
 import com.example.cardealershipkt.databinding.ActivityFavoritesBinding
 import com.example.cardealershipkt.domain.User
-import com.example.cardealershipkt.presentation.MainViewModel
+import com.example.cardealershipkt.presentation.ViewModel.MainViewModel
+import com.example.cardealershipkt.presentation.ViewModel.MainViewModelFactory
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import java.io.Serializable
@@ -31,7 +32,7 @@ class FavoritesActivity : AppCompatActivity(), Serializable {
     private var mDataBase: DatabaseReference? = null
     lateinit var binding: ActivityFavoritesBinding
 
-    private val viewModel: MainViewModel by viewModels()
+    private val viewModel: MainViewModel by viewModels{ MainViewModelFactory(this) }
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
