@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "204351182009",
+    "firebase_url": "https://cardealershipkt-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "cardealershipkt",
+    "storage_bucket": "cardealershipkt.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:204351182009:android:e2a1ddeafd4c3000b0b768",
+        "android_client_info": {
+          "package_name": "com.example.cardealershipkt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "204351182009-schqirdoo49nodob8rqp2u5b5dn85b15.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOfQajvrYSvy_vuQaVX9___YvHqBBW5Go"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "204351182009-schqirdoo49nodob8rqp2u5b5dn85b15.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
